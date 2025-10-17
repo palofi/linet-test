@@ -60,10 +60,9 @@ final class Status
         return $this->id;
     }
 
-    public function setId(StatusEnum $id): static
+    public function setId(StatusEnum $id): void
     {
         $this->id = $id;
-        return $this;
     }
 
     public function getName(): ?string
@@ -71,21 +70,19 @@ final class Status
         return $this->name;
     }
 
-    public function setName(string $name): static
+    public function setName(string $name): void
     {
         $this->name = $name;
-        return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getCreatedAt(): \DateTimeImmutable
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $createdAt): static
+    public function setCreatedAt(\DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
-        return $this;
     }
 
     public function getUserName(): ?string
@@ -93,10 +90,9 @@ final class Status
         return $this->userName;
     }
 
-    public function setUserName(?string $userName): static
+    public function setUserName(?string $userName): void
     {
         $this->userName = $userName;
-        return $this;
     }
 
     public function getUserFullName(): ?string
@@ -104,10 +100,9 @@ final class Status
         return $this->userFullName;
     }
 
-    public function setUserFullName(?string $userFullName): static
+    public function setUserFullName(?string $userFullName): void
     {
         $this->userFullName = $userFullName;
-        return $this;
     }
 
     /**
@@ -118,25 +113,21 @@ final class Status
         return $this->orders;
     }
 
-    public function addOrder(Order $order): static
+    public function addOrder(Order $order): void
     {
         if (! $this->orders->contains($order)) {
             $this->orders->add($order);
             $order->setStatus($this);
         }
-
-        return $this;
     }
 
-    public function removeOrder(Order $order): static
+    public function removeOrder(Order $order): void
     {
         if ($this->orders->removeElement($order)) {
             if ($order->getStatus() === $this) {
                 $order->setStatus(null);
             }
         }
-
-        return $this;
     }
 
     /**

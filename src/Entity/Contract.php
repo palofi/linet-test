@@ -30,10 +30,9 @@ final class Contract
         return $this->id;
     }
 
-    public function setId(int $id): static
+    public function setId(int $id): void
     {
         $this->id = $id;
-        return $this;
     }
 
     public function getName(): ?string
@@ -41,10 +40,9 @@ final class Contract
         return $this->name;
     }
 
-    public function setName(string $name): static
+    public function setName(string $name): void
     {
         $this->name = $name;
-        return $this;
     }
 
     public function getOrder(): ?Order
@@ -52,7 +50,7 @@ final class Contract
         return $this->order;
     }
 
-    public function setOrder(?Order $order): static
+    public function setOrder(?Order $order): void
     {
         if ($order === null && $this->order !== null) {
             $this->order->setContract(null);
@@ -63,7 +61,5 @@ final class Contract
         }
 
         $this->order = $order;
-
-        return $this;
     }
 }

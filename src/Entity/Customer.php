@@ -40,10 +40,9 @@ final class Customer
         return $this->id;
     }
 
-    public function setId(int $id): static
+    public function setId(int $id): void
     {
         $this->id = $id;
-        return $this;
     }
 
     public function getName(): ?string
@@ -51,10 +50,9 @@ final class Customer
         return $this->name;
     }
 
-    public function setName(string $name): static
+    public function setName(string $name): void
     {
         $this->name = $name;
-        return $this;
     }
 
     /**
@@ -65,17 +63,15 @@ final class Customer
         return $this->orders;
     }
 
-    public function addOrder(Order $order): static
+    public function addOrder(Order $order): void
     {
         if (! $this->orders->contains($order)) {
             $this->orders->add($order);
             $order->setCustomer($this);
         }
-
-        return $this;
     }
 
-    public function removeOrder(Order $order): static
+    public function removeOrder(Order $order): void
     {
         if ($this->orders->removeElement($order)) {
             // set the owning side to null (unless already changed)
@@ -83,7 +79,5 @@ final class Customer
                 $order->setCustomer(null);
             }
         }
-
-        return $this;
     }
 }

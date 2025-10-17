@@ -1,0 +1,9 @@
+monolog:
+    channels:
+        - request_log
+    handlers:
+        request_log:
+            type: stream
+            path: "%kernel.logs_dir%/requests.log"
+            level: info
+            channels: ["request_log"]

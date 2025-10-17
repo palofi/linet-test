@@ -1,0 +1,16 @@
+includes:
+    - vendor/phpstan/phpstan-symfony/extension.neon
+
+parameters:
+    paths:
+        - src
+    editorUrl: 'phpstorm://open?file=%%file%%&line=%%line%%'
+    level: 8
+    bootstrapFiles:
+        - vendor/autoload.php
+    excludePaths:
+        - vendor
+        - var
+        - public
+    symfony:
+        containerXmlPath: var/cache/dev/App_KernelDevDebugContainer.xml
